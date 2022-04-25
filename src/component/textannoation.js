@@ -5,20 +5,21 @@ export const circle_plugin_command = {
     display: 'command',
 
     title:'circle', 
-    buttonClass:'', 
-    innerHTML:``,
-
+    buttonClass:'', // add class to toolbarbutton
+    innerHTML:``,// add svg/ img / html code to make icon appear on tollbar 
+    // add button to toolbar
+    // if not provided will give default error symbol icon
     add: function (core, targetElement) {
         const context = core.context;
         context.customCommand_circle = {
             targetButton: targetElement
         };
     },
+    // activation on element
     active: function (element) {
         if (!element) {
             this.util.removeClass(this.context.customCommand_circle.targetButton, 'active');
         } else if (/^circle$/i.test(element.nodeName) && element.style.backgroundColor.length > 0) {
-            
             this.nodeChange(null, ['border-bottom',"line-height"], ['doubleunderline'], true);
             this.util.addClass(this.context.customCommand_circle.targetButton, 'active');
             return true;
@@ -40,21 +41,23 @@ export const circle_plugin_command = {
             this.nodeChange(null, ['border-bottom',"line-height"], ['doubleunderline'], true);
         }
         if (!this.util.hasClass(this.context.customCommand_circle.targetButton, 'active')) {
+           // create custom element 
             const newNode = this.util.createElement('circle');
                 console.log(this);
-            
+            // for now added inline css can add classes too 
             newNode.style.backgroundColor = 'transparent';
             newNode.style.color="#000";
             newNode.style.borderRadius= "15px";
             newNode.style.border="1px solid black";
             newNode.style.padding=" 1px 5px 1px 5px";
-            // this.nodeChange(null, ['border-bottom',"line-height"], ['doubleunderline'], true);
             this.nodeChange(newNode, ["background-color","color","border-radius","border","padding"], null, true);
         } else {
             this.nodeChange(null, ["background-color","color","border-radius","border","padding"], ['circle'], true);
         }
     }
 }
+
+// belopw button works with the same logic as above  same tag
 export const underline_plugin_command = {
     name: 'customCommand_underline',
     display: 'command',
@@ -100,7 +103,7 @@ export const underline_plugin_command = {
         }
     }
 }
-
+//
 export const doubleunderline_plugin_command = {
     name: 'customCommand_doubleunderline',
     display: 'command',
@@ -143,7 +146,7 @@ export const doubleunderline_plugin_command = {
         }
     }
 }
-
+// used as comment like in annotation
 export const custom_container = {
    
     name: 'custom_container',
@@ -197,7 +200,7 @@ export const custom_container = {
     },
     
 };
-
+// use as an prop to call in built pulgin
 export const custom_containerhigh = {
     name: 'custom_containerhighli',
 

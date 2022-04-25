@@ -18,24 +18,16 @@ export const MyComponent = (props:any) => {
 
   const getSunEditorInstance = (sunEditor: SunEditorCore) => {
     editor.current = sunEditor;
-    // console.log(editor.current);
     editor.current.core.util.isTextStyleElement=customizeTextstylecheck;
-    // let data:any=localStorage.getItem("annotation");
-    // editor.current.setContents(data)
+   
     console.log(editor.current);
   }
 
 
 const onloadFunction =(e:any)=>{
-  // let manipulate=string3;
+  
   let data:any=localStorage.getItem("annotation");
-  // let datavalue:any[]=JSON.parse(data);
-  // datavalue.forEach((elem:any)=>{
-  //   // console.log(elem);
-  //   // console.log(manipulate.indexOf(elem[0]));
-  //   manipulate=manipulate.replace(elem[0],elem[1]);
-  // })
-  // editor.current.setContents(data)
+  
   settextannotationString(data);
   
 }
@@ -46,12 +38,7 @@ const handleKeyDown=(event:KeyboardEvent)=>{
 	console.log(event); //Get the keydown event
 }
 const handleMousedown=(event:MouseEvent)=>{
-      // event.preventDefault();
-      // console.log(editor.current);
-      // console.log(editor.current.core);
-      // console.log(editor.current)
-      
-        // editor.current.core.nodeChange(null, ["background-color","color","border-radius","border","padding"], ['circle'], true)
+     
     
 }
 const handleFocus=(event:any)=>{
@@ -68,17 +55,14 @@ const handleFocus=(event:any)=>{
       onMouseDown={handleMousedown}
       setContents={textannotationString}
       height="100%"
-      // onFocus={handleFocus}
+     
       autoFocus={false}
       getSunEditorInstance={getSunEditorInstance}
       setOptions={{
         callBackSave:(contents, isChanged)=>{
-          // console.log(ref.current)
-          // console.log(editor)
-          // see=true;
-          console.log(editor.current);
+          // console.log(editor.current);
 
-          console.log(contents);
+          // console.log(contents);
             localStorage.setItem("annotation",contents);
   
         },
@@ -87,6 +71,7 @@ const handleFocus=(event:any)=>{
         buttonList: [
           [ "custom_containerhighli","customCommand_underline","customCommand_doubleunderline","customCommand_circle","custom_container",'save',]
       ],
+      // custom color list can be provided
         colorList: [
           '#ccc', '#dedede', 'OrangeRed', 'Orange', 'RoyalBlue', 'SaddleBrown'
       ],

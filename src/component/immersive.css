@@ -1,0 +1,15 @@
+
+.immersive-logo{
+    width: 30px;
+    margin-bottom: 2px;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-top: 50px;
+    margin-left: 10px;
+    position: absolute;
+}
+
+.test-text{
+    position: absolute;
+    left: 50px;
+}

@@ -25,13 +25,13 @@ export const MyComponent = (props:any) => {
 
 
 const onloadFunction =(e:any)=>{
-  
   let data:any=localStorage.getItem("annotation");
-  
+  if(data){
   settextannotationString(data);
-  
+  }
+
 }
-// let see=false;
+
 const handleKeyDown=(event:KeyboardEvent)=>{
   event.preventDefault();
 
@@ -55,14 +55,10 @@ const handleFocus=(event:any)=>{
       onMouseDown={handleMousedown}
       setContents={textannotationString}
       height="100%"
-     
       autoFocus={false}
       getSunEditorInstance={getSunEditorInstance}
       setOptions={{
         callBackSave:(contents, isChanged)=>{
-          // console.log(editor.current);
-
-          // console.log(contents);
             localStorage.setItem("annotation",contents);
   
         },
